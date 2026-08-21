@@ -1,0 +1,43 @@
+name: Mobilewright
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint:types
+      - run: npm run test:unit
+
+  # Device/emulator jobs need hardware. Enable when a self-hosted runner
+  # or Mobile Next cloud key is available:
+  # e2e:
+  #   runs-on: [self-hosted, android]
+  #   env:
+  #     CI: true
+  #     WORKERS: 2
+  #     RETRIES: 2
+  #     FULLY_PARALLEL: true
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 22
+  #         cache: npm
+  #     - run: npm ci
+  #     - run: npx mobilewright doctor --category android
+  #     - run: npx mobilewright test --project=android --grep @smoke
+  #     - uses: actions/upload-artifact@v4
+  #       if: always()
+  #       with:
+  #         name: html-report
+  #         path: playwright-report/

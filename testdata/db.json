@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "username": "7773730615",
+      "password": "1357",
+      "role": "valid",
+      "tenant": "Evelyn",
+      "active": true
+    },
+    {
+      "username": "Admin111",
+      "password": "admin111",
+      "role": "invalid",
+      "active": false
+    }
+  ]
+}
