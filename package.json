@@ -1,7 +1,30 @@
 {
+  "name": "mobilewright-end-to-end",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Production-style Mobilewright framework for iOS and Android automation",
+  "scripts": {
+    "doctor": "mobilewright doctor",
+    "devices": "mobilewright devices",
+    "inspect": "mobilewright inspect",
+    "test": "mobilewright test",
+    "test:smoke": "mobilewright test --grep @smoke",
+    "test:regression": "mobilewright test --grep @regression",
+    "test:android": "mobilewright test --project=android",
+    "test:ios": "mobilewright test --project=ios",
+    "test:serial": "mobilewright test --grep @serial",
+    "test:list": "mobilewright test --list",
+    "test:unit": "node --import tsx --test $(find src -name '*.unit.test.ts')",
+    "report": "mobilewright show-report",
+    "lint:types": "tsc --noEmit"
+  },
   "devDependencies": {
     "@mobilewright/test": "0.0.37",
     "@types/node": "latest",
-    "mobilewright": "^0.0.52"
+    "dotenv": "^16.6.1",
+    "mobilewright": "^0.0.52",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   }
 }
