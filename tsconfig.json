@@ -11,8 +11,7 @@
     "resolveJsonModule": true,
     "noEmit": true,
     "allowImportingTsExtensions": true,
-    "types": ["node"],
-    "baseUrl": "."
+    "types": ["node"]
   },
   "include": ["src/**/*.ts", "tests/**/*.ts", "mobilewright.config.ts", "global-setup.ts", "global-teardown.ts"],
   "exclude": ["node_modules", "dist"]
